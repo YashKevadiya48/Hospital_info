@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    {{>head}}
+    <link rel="stylesheet" href="css/profile.css">
+        <title>Profile</title>
+    </head>
+    <body>
+    {{>admin_header}}
+    <br>
+        {{#if message}}
+            <div style="text-align: center" class="alert alert-{{message.type}}">
+                <strong>{{message.intro}}</strong> {{message.message}}
+                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">&times;</button>      
+            </div>
+        {{/if}}
+        <p class="h1"> Profile </p>
+        <div class="container-fluid">
+            {{#each admindata}}
+                <form action="/profile" method="PUT" class="main-form container" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <input type="file" name="profile-photo" class="form-control" ><br>
+                        <img src="./upload/profile-photo/{{profilephoto}}" alt="photo is not found." style="width: 200px; height:200px; border-radius:100px; border:1px solid black;"> <br>
+                        <span id="image-error" style="color: red;"></span>
+                        <input type="hidden" name="old-image" value="{{profilephoto}}">
+                    </div>
+                    <div class="mb-3">
+                        <lable for="firstname">First Name :</lable>
+                        <input type="text" name="fname" value="{{firstname}}" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <lable for="lastname">Last Name :</lable>
+                        <input type="text" name="lname" value="{{lastname}}"  class="form-control" required> 
+                    </div>
+                    <div class="mb-3">
+                        <lable for="username">User Name :</lable>
+                        <input type="text" name="uname" value="{{adminname}}" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <lable for="email">E-mail id :</lable>
+                        <input type="email" name="email" value="{{emailid}}" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <lable for="phone">Mobile Number :</lable>
+                        <input type="tel" name="mobile" maxlength="10" value="{{mobileno}}" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <lable for="address">Address :</lable>
+                        <input type="address" name="address" value="{{address}}" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <lable for="pincode">Pincode :</lable>
+                        <input type="tel" name="pincode" maxlength="6" value="{{pincode}}" class="form-control" required> 
+                    </div>
+                        <input type="submit" name="submit" class="btn btn-primary" value="Update">
+
+                </form>
+            {{/each}}
+        </div>
+    </body>
+</html>
+{{>footer}}

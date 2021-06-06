@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/update-hospital.css">
+        <title>Update-Hospital</title>
+    </head>
+    <body>
+    {{!-- {{>admin_header}} --}}
+        <br>     
+        <p class="h1"> Update Hospital Information </p>
+    <div class="container-fluid">
+        {{#each updatehosinfo}}
+        <form action="/update-hospital" method="POST" class="main-form container" enctype="multipart/form-data">
+            
+            <input type="hidden" name = "hospital" value="{{_id}}">
+            <div class="mb-3">
+                <lable for="hospital-name">Hospital Name :</lable>
+                <input type="text" name="hospital-name" class="form-control" value="{{hospitalname}}" required> 
+            </div>
+            <div class="mb-3">
+                <lable for="hospital-owner">Hospital Owner :</lable>
+                <input type="text" name="owner-name" class="form-control" value="{{hospitalowner}}" required>
+            </div>
+            <div class="mb-3">
+                <lable for="hospital-photo">Hospital Photo :</lable> 
+                <input type="file" name="hospital-photo" class="form-control" value=""><br>
+                <img src="upload/hospital-photo/{{hospitalphoto}}" alt="Hospital image not available." style="width: 150px; height:150px;"><br>
+                <span id="image-error" style="color: red;"></span>
+                <input type="hidden" name="old-image" value="">
+            </div>
+
+            <div class="mb-3">
+                <lable for="opening-time">Opening Time :</label>
+                <input type="time" name="opening-date" class="form-control" value="{{hospitalopentime}}">
+            </div>
+            <div class="mb-3">
+                <lable for="closeing-time">closeing Time :</label>
+                <input type="time" name="closeing-date" class="form-control" value="{{hospitalclosetime}}">
+            </div>
+            
+            <div class="mb-3">
+                <lable for="mobile-number">Contect No :</lable> 
+                <input type="tel" maxlength="10" name = "mobile-number" class="form-control" value="{{contectno}}" required> 
+            </div>
+
+            <div class="mb-3">
+                <lable for="address">Hospital Address :</lable><br>
+                <textarea rows="10" cols="20" name="address" class="form-control" >{{hospitaladdress}}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <lable for="latitude">Hospital's Latitude :</lable> 
+                <input type="text" name="latitude" class="form-control" value="{{hospitallatitude}}" required>
+            </div>
+
+            <div class="mb-3">
+                <lable for="longitude">Hospital's Longitude :</lable><br>
+                <input type="text" name="longitude" class="form-control" value="{{hospitallongitude}}" required>
+            </div>
+
+            <div class="mb-3">
+                <lable for="area">Area :</lable><br>
+                <input type="text" name="area" class="form-control" value="{{hospitalarea}}" required>
+            </div>
+
+            <div class="mb-3">
+                <lable for="pincode">Pincode :</lable> 
+                <input type="tel" maxlength="6" name = "pincode" class="form-control" value="{{areapincode}}" required> 
+            </div>
+
+            <div class="mb-3">
+                <lable for="category">Category</lable>
+                <select name="category"  class="form-control">
+                    <option disabled>Select Type</option>
+                    <option selected value="Beds">Beds</option>
+                    <option value="Plasma">Plasma</option>
+                </select>
+            </div>
+            <div class="mb-3"> 
+                <lable for="discription">Discription</lable> 
+                <textarea rows="10" cols="20" name="discription" class="form-control" >{{discription}}</textarea>
+            </div><br>
+            <input type="submit" name="submit" value="Update" class="btn btn-primary">
+        </form>
+        {{/each}}
+        </div>
+    </body>
+</html>
+{{!-- {{>footer}} --}}

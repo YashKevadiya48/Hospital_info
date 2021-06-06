@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{>head}}
+        <link rel="stylesheet" href="css/hospital-data.css">
+        <title>Add Hospital Details | Hospital's Owner</title>
+    </head>
+    <body>
+        {{>admin_header}}
+        {{#if message}}
+            <div style="text-align: center" class="alert alert-{{message.type}}">
+                <strong>{{message.intro}}</strong> {{message.message}}
+                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>      
+            </div>
+        {{/if}}
+        <p class="h1"> Add Hospital Details </p>
+        <div class="container-fluid">
+        <form action="/hospital-details" method="POST" class="main-form container" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <lable for="hospital-name">Hospital Name</lable>
+                    <input type="text" name="hospitalname" id="mallName" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <lable for="hospital-owner">Hospital Owner Name</lable>
+                    <input type="text" name="hospitalowner" id="mallOwner" class="form-control" >
+                </div>
+
+                <div class="mb-3">
+                    <lable for="hospital-photo">Hospital Photo</lable>
+                    <input type="file" name="hospitalphoto" class="form-control" >
+                    <span id="image-error" style="color: red;"></span>
+                </div>
+
+                <div class="mb-3">
+                    <lable for="hospital-opening-time">Hospital Opening time :</lable>
+                    <input type="time" name="openingtime" id="openingTime" class="form-control" >
+                </div>
+
+                <div class="mb-3">
+                    <lable for="hospital-closeing-time">Hospital Closeing time :</lable>
+                    <input type="time" name="closeingtime" id="openingTime" class="form-control" > 
+                </div>
+
+                <div class="mb-3">
+                    <lable for="contect-no">Contect No :</lable>
+                    <input type="tel" maxlength="10" name="contectno" class="form-control" > 
+                </div>
+
+                <div class="mb-3">
+                    <lable for="hospital-address">Hospital Address :</lable>
+                    <input type="text" name="hospitaladdress" class="form-control" >
+                </div>
+
+                <div class="mb-3">
+                    <lable for="latitude">Hospital's Latitude :</lable> 
+                    <input type="text" name="latitude" class="form-control" > 
+                </div>
+                
+                <div class="mb-3">
+                    <lable for="longitude">Hospital's Longitude :</lable> 
+                    <input type="text" name="longitude" class="form-control" > 
+                </div>
+
+                <div class="mb-3">
+                    <lable for="area">Hospital Area :</lable>
+                    <input type="text" name="area" class="form-control" > 
+                </div>
+
+                <div class="mb-3">
+                    <lable for="pincode">Area pincode :</lable>
+                    <input type="text" name="pincode" class="form-control"  > 
+                </div>
+                
+                <div class="mb-3">               
+                    <lable for="category">Category :</lable>
+                    <select name="category"  class="form-control" >
+                        <option selected disabled>Select category</option>
+                        <option value="Beds">Beds</option>
+                        <option value="Plasma">Plasma</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <lable for="discription">Discription :</lable>
+                    <input type="text" name="discription" class="form-control" > 
+                </div>
+                <input type="submit" name="submit" value="Submit" class="btn btn-primary">&nbsp;&nbsp;&nbsp;
+                <input type="reset" value="Reset" class="btn btn-primary">
+            </form>
+        </div>
+    </body>
+</html>
+{{>footer}}

@@ -1,0 +1,70 @@
+{{>admin_header1}}
+<!DOCTYPE html>
+<html>
+    <head>
+        {{>head}}
+        <title>Hospital-table | Hospital Admin</title>
+    </head>
+    <body>
+        <div>
+        {{#if message}}
+            <div style="text-align: center" class="alert alert-{{message.type}}">
+                <strong>{{message.intro}}</strong> {{message.message}}
+                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>      
+            </div>
+        {{/if}}
+        <center>
+        <h2>Hospital Details</h2><br>
+        <a href="/hospital-details" align="right"><input type="button" class="btn btn-outline-secondary" value="Add Hospital"></a>
+            <table border="1px" cellspacing="0px" cellpadding="10px">
+            <tr>
+                    <th>hospital Id</th>
+                    <th>hospital Name</th>
+                    <th>hospital Owner</th>
+                    <th>hospital Photo</th>
+                    <th>hospital Opening Time</th>
+                    <th>hospital Closeing Time</th>
+                    <th>Phone no</th>
+                    <th>Address</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Area</th>
+                    <th>Pincode</th>
+                    <th>Category</th>
+                    <th>Discription</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                {{#each hospitaldata}}
+                    <tr>
+                        <td>1</td>
+                        <td>{{hospitalname}}</td>
+                        <td>{{hospitalowner}}</td>
+                        <td>
+                        <img src="./upload/hospital-photo/{{hospitalphoto.name}}"  alt="Hospital image is not found." style="width: 150px; height:150px;">
+                        </td>
+                        <td>{{hospitalopentime}}</td>
+                        <td>{{hospitalclosetime}}</td>
+                        <td>{{contectno}}</td>
+                        <td>{{hospitaladdress}}</td>
+                        <td>{{hospitallatitude}}</td>  
+                        <td>{{hospitallongitude}}</td>                
+                        <td>{{hospitalarea}}</td><br>
+                        <td>{{areapincode}}</td>
+                        <td>{{category}}</td>
+                        <td>{{discription}}</td>
+                        <td><a href="/update-hospital/{{_id}}"><input type="button" class="btn btn-outline-secondary" value="Update"></a></td>
+                        <td><a href="/delete-hospital/{{_id}}"><input type="button" class="btn btn-outline-secondary" value="Delete"></a></td>
+                    </tr>
+                {{/each}}
+            </table> 
+            <br><br>
+            <input type="button" class="btn btn-outline-secondary" value="Prev">
+            <input type="button" class="btn btn-outline-secondary" value="1">
+            <input type="button" class="btn btn-outline-secondary" value="2">
+            <input type="button" class="btn btn-outline-secondary" value="Next">
+        </div>
+        </center>
+    </body>
+</html><br>
+{{>footer}}

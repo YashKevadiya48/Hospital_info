@@ -1,0 +1,71 @@
+{{>admin_header}}
+<!DOCTYPE html>
+<html>
+    <head>
+         <link rel="stylesheet" href="css/update-bed.css">
+        <title>Update Bed Information</title>
+    </head>
+    <body>
+        <br>     
+        <p class="h1"> Update Bed Information </p>
+        <div class="container-fluid">
+        {{#each beddata}}
+        <form action="/update-bed-details/{{_id}}" method="PUT" class="main-form container" enctype="multipart/form-data">
+                <input type="hidden" name="bed_id" value="{{_id}}">
+                <div class="mb-3">
+                    <lable for="hospital-Name">Hospital Name :</lable>
+                    <select name="hos_id" class="form-control" required>
+                            <option  value="{{hospitalname}}">{{hospitalname}}</option>
+                    </select>
+                </div>
+                
+                <p class="h3">With Oxygen Beds : </p><br>
+                    <div class="mb-3">
+                        <lable for="available_wo_bed">Available With Oxygen Beds :</lable>
+                        <input type="text" name="available_wo_bed" value="{{awob}}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <lable for="total_wo_bed">Total With Oxygen Beds :</lable>
+                        <input type="text" name="total_wo_bed" value="{{twob}}" class="form-control" required> 
+                    </div><br><br>
+
+                <p class="h3">Without Oxygen Beds : </p><br>
+                    <div class="mb-3">
+                        <lable for="available_woo_bed">Available Without Oxygen Beds :</lable>
+                        <input type="text" name="available_woo_bed" value="{{awob}}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <lable for="total_woo_bed">Total Without Oxygen Beds :</lable>
+                        <input type="text" name="total_woo_bed" value="{{twob}}" class="form-control" required> 
+                    </div><br><br>
+                                
+                <p class="h3">ICU With ventilator Beds : </p><br>
+                    <div class="mb-3">
+                        <lable for="available_iwv_bed">Available ICU With Ventilator Beds :</lable>
+                        <input type="text" name="available_iwv_bed" value="{{aiwv}}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <lable for="total_iwv_bed">Total ICU With Ventilator Beds :</lable>
+                        <input type="text" name="total_iwv_bed" value="{{tiwv}}" class="form-control" required> 
+                    </div><br><br>
+                                
+                <p class="h3">ICU Without ventilator Beds : </p><br>
+                    <div class="mb-3">
+                        <lable for="available_iwov_bed">Available ICU Without Ventilator Beds :</lable>
+                        <input type="text" name="available_iwov_bed" value="{{aiwov}}" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <lable for="total_iwov_bed">Total ICU Without Ventilator Beds :</lable>
+                        <input type="text" name="total_iwov_bed" value="{{tiwov}}" class="form-control" required> 
+                    </div><br>
+
+                    <input type="submit" name="submit" class="btn btn-primary" value="Update">
+            </form>
+            {{/each}}
+    </body>
+</html>
+{{!-- {{>footer}} --}}

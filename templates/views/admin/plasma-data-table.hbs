@@ -1,0 +1,54 @@
+{{>admin_header1}}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plasma-table | Hospital Admin</title>
+    </head>
+    <body>
+    <div>
+        <center>
+        <br>
+        <h2>Plasma Hospital Details</h2><br>
+        <!-- <a href="hospital-details.php" align="right"><input type="button" class="btn btn-outline-secondary" value="Add Hospital"></a><br><br> -->
+            <br>
+            <table border="1px" cellspacing="0px" cellpadding="10px">
+            <tr>
+                    <th>hospital Id</th>
+                    <th>hospital Name</th>
+                    <th>hospital Category</th>
+                    <th>hospital-photo</th>
+                    <th>hospital Opening Time</th>
+                    <th>hospital Closeing Time</th>
+                    <th>Phone no</th>
+                    <th>Address</th>
+                    <th>Area</th>
+                    <th>Pincode</th>
+                    <th>Discription</th>
+                </tr>
+                {{#each plasmadata}}
+                <tr>
+                    <td>1</td>
+                    <td>{{hospitalname}}</td>
+                    <td>{{category}}</td>
+                    <td><img src="./upload/hospital-photo/{{hospitalphoto.name}}" alt="Hospital image is not found." style="width: 150px; height:150px;"></td>
+                    <td>{{hospitalopentime}}</td>
+                    <td>{{hospitalclosetime}}</td>
+                    <td>{{contectno}}</td>
+                    <td>{{hospitaladdress}}</td>
+                    <td>{{hospitalarea}}</td>  
+                    <td>{{areapincode}}</td>                
+                    <td>{{discription}}</td>
+                </tr>
+                {{/each}}
+            </table>
+            <br><br>
+            <input type="button" class="btn btn-outline-secondary" value="Prev">
+            <input type="button" class="btn btn-outline-secondary" value="1">
+            <input type="button" class="btn btn-outline-secondary" value="2">
+            <input type="button" class="btn btn-outline-secondary" value="Next">
+        </div>
+        </center>
+    </body>
+</html><br>
+{{>footer}}

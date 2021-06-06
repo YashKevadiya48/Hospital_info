@@ -1,0 +1,11 @@
+Main purpose of this website is to find hospital and more details quickly
+This project is divide into two section first section is user penal and second section is 
+admin panel
+in admin panel admin can add their hospital info like hospital name ,it's owner name , 
+hospital location and many more
+also add hospital bed information like which type of beds and how many beds are available 
+in the hospital and also add extra information like plasma details.
+
+in user panel user can see all hospital's bed information as well as they can able to show 
+hospital location in the map. so, user can easliy and fastliy reach the hospital and do treatment very quickly
+and also user can hospital info which provide plasma in the hospital.

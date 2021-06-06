@@ -1,0 +1,66 @@
+{{>admin_header1}}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {{>head}}
+        <title>Bed Info | Hospital Admin</title>
+    </head>
+    <body>
+        {{#if message}}
+            <div style="text-align: center" class="alert alert-{{message.type}}">
+                <strong>{{message.intro}}</strong> {{message.message}}
+                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>      
+            </div>
+        {{/if}}
+        <center>
+        <div>
+            <h2>Hospital Beds Details</h2><br>
+            <a href="/bed-details"><input type="button" class="btn btn-outline-secondary" value="Add Hospital Bed Information"></a><br>
+        </div>
+            <br>
+            <table border="1px" cellspacing="0px" cellpadding="10px" name="product-mall">
+                    <tr>
+                        <th>Bed Id</th>
+                        <th>Hospital Name</th>
+                        <th>Hospital Category</th>
+                        <th>With Oxygen Beds<br>Available / Total</th>
+                        <th>Without Oxygen Beds<br>Available / Total</th>
+                        <th>ICU With Ventilator Beds<br>Available / Total</th>
+                        <th>ICU Without Ventilator Beds<br>Available / Total</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                    {{#each beddata}}
+                        <tr>
+                            <td>1</td>
+                            <td>{{hospitalname}}</td>
+                            <td>Beds</td>
+                            <td>{{awob}} / {{twob}}</td>
+                            <td>{{awoob}} / {{twoob}}</td>
+                            <td>{{aiwv}} / {{tiwv}}</td>
+                            <td>{{aiwov}} / {{tiwov}}</td>
+                            <td>
+                                <a href="/update-bed-details/{{_id}}">
+                                    <input type="submit"  class="btn btn-outline-secondary" value="Update">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/delete-bed-details/{{_id}}">
+                                    <input type="submit"  name = "delete" class="btn btn-outline-secondary" value="Delete">
+                                </a>
+                            </td>
+                        </tr>
+                    {{/each}}
+            </table><br><br>
+            <input type="button" class="btn btn-outline-secondary" value="Prev">
+            <input type="button" class="btn btn-outline-secondary" value="1">
+            <input type="button" class="btn btn-outline-secondary" value="2">
+            <input type="button" class="btn btn-outline-secondary" value="Next"><br>
+        </div>
+        </center>
+    </body>
+</html><br>
+{{>footer}}

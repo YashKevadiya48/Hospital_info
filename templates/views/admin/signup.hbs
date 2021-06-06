@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{>head}}
+    {{!-- <link rel="stylesheet" href="css/main.css"> --}}
+        <link rel="stylesheet" href="css/signup.css">
+        <title>Sign Up | Hospital's Owner</title>
+    </head>
+    <body>
+
+        {{>admin_header}}     
+        {{#if message}}
+            <div style="text-align: center" class="alert alert-{{message.type}}">
+                <strong>{{message.intro}}</strong> {{message.message}}
+                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>      
+            </div>
+        {{/if}}
+        
+        <p class="h1"> Sign Up </p>
+
+        <div class="container-fluid">
+
+            <form action="/signup" method="POST" class="main-form container" enctype="multipart/form-data">
+
+               <p class="h5">Already have an account?<a href="/login">Login</a></p><br>      
+
+                <div class="mb-3">
+
+                    <lable for="firstname">First Name :</lable>
+
+                    <input type="text" name="fname" id="firstname" class="form-control" > 
+
+                </div>
+
+                <div class="mb-3">
+
+                    <lable for="lastname">Last Name :</lable> 
+
+                    <input type="text" name="lname" id="lastname" class="form-control" > 
+
+                </div>
+
+                <div class="mb-3">
+
+                    <lable for="username">Admin Name :</lable> 
+
+                    <input type="text" name="uname" id="username" class="form-control" > 
+
+                    <span id="username-error" style="color: red;"></span> 
+
+                </div>
+
+                <div class="mb-3">
+
+                    <lable for="email">E-mail id :</lable>
+
+                    <input type="email" name="email" id="email" class="form-control" >
+
+                    <span id="email-error" style="color: red;"></span>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <lable for="phone">Mobile Number </lable>
+
+                    <input type="tel" name="mobile" maxlength="10" id="mobile-number" class="form-control" >
+
+                </div>
+
+                <div class="mb-3">
+
+                    <lable for="password">Password :</lable> 
+
+                    <input type="password" name="password" id="password" class="form-control" >  
+
+                </div>
+
+
+
+                <div class="mb-3">
+
+                    <lable for="password">Confirm Password :</lable> 
+
+                    <input type="password" name="repassword" id="confirm-password" class="form-control" >  
+
+                    <span id="password-error" style="color: red;"></span>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <lable for="image">Profile Photo :</lable>
+
+                    <input type="file" name="photo"  class="form-control" >
+                </div>
+
+                
+
+                <div class="mb-3">
+
+                    <lable for="address">Address :</lable>
+
+                    <input type="address" name="address" class="form-control" >
+
+                </div>
+
+
+
+                <div class="mb-3">
+
+                    <lable for="pincode">Pincode :</lable> 
+
+                    <input type="tel" name="pincode" maxlength="6" class="form-control" > <br>
+
+                </div>
+
+                <input type="submit" name="submit" value="Submit" class="btn btn-primary">&nbsp;&nbsp;&nbsp;
+
+                <input type="reset" value="Reset" class="btn btn-primary">
+
+
+
+            </form>
+
+        </div>
+
+    </body>
+
+</html>
+
+
+{{>footer}}
